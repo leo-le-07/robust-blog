@@ -14,6 +14,9 @@ class SessionsController < ApplicationController
     end
   end
 
+  def index
+  end
+
   def destroy
     session[:user_id] = nil
     render 'new'
