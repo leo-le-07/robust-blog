@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'signin' => 'sessions#new'
+  get 'signout' => 'sessions#destroy'
+  get 'signup' => 'users#new'
+
   root 'home#index'
 
   resources :users do
@@ -10,4 +14,6 @@ Rails.application.routes.draw do
     resources :comments do
     end
   end
+
+  resources :sessions
 end

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-block">
+    <h3 class="card-title">
+      Sign in
+    </h3>
+    <div class="card-text">
+      <%= form_tag("/sessions", method: "post") do %>
+        <fieldset class="form-group">
+          <%= label_tag "email", "Email" %>
+          <%= email_field_tag "email", nil, class: "form-control" %>
+        </fieldset>
+        <fieldset class="form-group">
+          <%= label_tag "password", "Password" %>
+          <%= password_field_tag "password", nil, class: "form-control" %>
+        </fieldset>
+        <%= submit_tag "Sign in", class: "btn btn-primary-outline" %>
+        <%= link_to "Sign up", "/signup", style: "margin-left: 20px" %>
+      <% end %>
+    </div>
+  </div>
+</div>
