@@ -8,10 +8,16 @@
 }
 
 .blog {
+  .blog-container {
+    margin-bottom: 30px;
+  }
   .comments {
     .comments-list {
-      /*height: 200px;
-      overflow-y: scroll;*/
+      .time {
+        font-size: .8rem;
+        font-weight: 100;
+        font-style: italic;
+      }
     }
 
     .new-comment {

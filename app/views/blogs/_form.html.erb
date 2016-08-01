@@ -1,0 +1,11 @@
+<%= form_for [current_user, blog] do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content, class: "form-control", placeholder: "", rows: 10 %>
+  </fieldset>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

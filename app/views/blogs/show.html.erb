@@ -1,7 +1,13 @@
 <div class="blog">
-  <div class="row">
+  <div class="row blog-container">
     <div class="col-sm-12">
-      <h3><%= @blog.title %></h3>
+      <h3><%= @blog.title %>
+        <% if current_user.id == @blog.user.id %>
+          <%= link_to edit_user_blog_path(current_user, @blog), style: "margin-left: 20px;" do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </h3>
       <p><%= @blog.content %></p>
     </div>
   </div>
@@ -23,7 +29,7 @@
       <% end %>
     </div>
     <div class="col-sm-8 comments">
-      <h4>Comments</h4>
+      <h4>Comments (<%= @comments.size %>)</h4>
       <div class="comments-list">
         <% @comments.each do |comment| %>
           <%= render partial: "comment", locals: {comment: comment} %>

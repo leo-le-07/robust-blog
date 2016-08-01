@@ -1,9 +1,8 @@
 <div class="comment-content-wrap">
   <div class="card">
     <div class="card-block">
-      <h5 class="card-title"><%= comment.user.name %></h5>
+      <h5 class="card-title"><%= comment.user.name %> <span class="pull-xs-right time"><%= format(comment.created_at) %></span></h5>
       <p class="card-text"><%= comment.content %></p>
-      <p>Created at: <%= format(comment.created_at) %></p>
     </div>
   </div>
 </div>
