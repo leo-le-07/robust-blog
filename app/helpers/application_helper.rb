@@ -5,9 +5,13 @@ module ApplicationHelper
 
   def flash_messages(opts = {})
     flash.map do |type, message|
-      content_tag(:div, message, class: "alert #{bootstrap_class_for(type)} fad in", style: "padding-top: 70px;") do
+      content_tag(:div, message, class: "alert #{bootstrap_class_for(type)} fad in") do
         content_tag(:button, 'x'.html_safe, class: 'close', data: {dismiss: 'alert'}) + message
       end
     end.join.html_safe
+  end
+
+  def format(time)
+    time.strftime("%H:%M %d-%m-%Y")
   end
 end

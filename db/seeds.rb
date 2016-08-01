@@ -11,7 +11,7 @@ end
 
 User.all.each do |user|
   5.times do |t|
-    user.blogs.create(content: Faker::Lorem.paragraph(20))
+    user.blogs.create(title: Faker::Educator.course, content: Faker::Lorem.paragraph(rand(5..20)))
   end
 end
 

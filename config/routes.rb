@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'signout' => 'sessions#destroy'
   get 'signup' => 'users#new'
 
-  root 'home#index'
+  root 'blogs#index'
 
   resources :users do
   	resources :blogs do

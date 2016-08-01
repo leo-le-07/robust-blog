@@ -1,0 +1,45 @@
+<div class="blog">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3><%= @blog.title %></h3>
+      <p><%= @blog.content %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 new-comment">
+      <h4>Add new comment</h4>
+      <% if current_user %>
+        <%= form_for [@blog, @comment] do |f| %>
+          <fieldset class="form-group">
+            <%= f.hidden_field :user_id, value: current_user.id %>
+          </fieldset>
+          <fieldset class="form-group">
+            <%= f.text_field :content, class: "form-control", placeholder: "Your comment content ..." %>
+          </fieldset>
+          <%= f.submit "Add", class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Sign in", signin_path %> or <%= link_to "Sign up", signup_path %> to comment
+      <% end %>
+    </div>
+    <div class="col-sm-8 comments">
+      <h4>Comments</h4>
+      <div class="comments-list">
+        <% @comments.each do |comment| %>
+          <%= render partial: "comment", locals: {comment: comment} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-sm-12 new-comment">
+      <h4>Add new comment</h4>
+      <%= form_for [@blog, @comment] do |f| %>
+        <fieldset class="form-group">
+          <%= f.text_field :content, class: "form-control", placeholder: "Your comment content ..." %>
+        </fieldset>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div> -->
+</div>
