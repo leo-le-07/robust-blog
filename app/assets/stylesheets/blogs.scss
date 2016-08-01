@@ -1,10 +1,61 @@
 .blogs {
   .blog {
     a{
-        text-decoration: none;
-        color: #373a3c;
+      text-decoration: none;
+      color: #373a3c;
+    }
+    box-shadow: 0 0px 0px rgba(0,0,0,0.19),0 3px 6px rgba(0, 0, 0, 0.13);
+    border-radius: 4px;
+    margin-bottom: 40px;
+  }
+}
+
+.blog-head{
+  padding: 2.3rem;
+  .published-date, .comments-link {
+    position: relative;
+    margin: 0px 5px;
+    font-family: 'Roboto', sans-serif;
+    width: 69px;
+    height: 69px;
+    display: table;
+    margin-bottom: 11px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    border: 1px solid #0089ff;
+    background-color: #0089ff;
+    color: #FFF;
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
+  .po-date {
+    display: inline-block;
+    font-size: 23px;
+    font-weight: 700;
+    margin-top: 7px;
+    width: 100%;
+  }
+  a {
+    .comments-link {
+      background-color: #FFF;
+      color: #0089ff;
+      padding-top: 5px;
+      font-size: 19px;
     }
   }
+}
+.blog-content-summary {
+  text-align: justify;
+}
+
+.author {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgb(186, 186, 186);
 }
 
 .blog {
@@ -23,5 +74,12 @@
     .new-comment {
       
     }
+  }
+}
+
+.blog-title {
+  color: #555;
+  a:hover{
+    color: #0089ff;
   }
 }

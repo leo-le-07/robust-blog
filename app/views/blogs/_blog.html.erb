@@ -1,11 +1,25 @@
-<div class="card blog">
-  <%= link_to blog_path(id: blog.id) do %>
-    <div class="card-block blog-head">
-      <h4 class="card-title"><%= blog.title %></h4>
-      <p class="card-text"><%= blog.content %></p>
+<div class="blog">
+  <div class="row">
+    <div class="col-xs-9">
+      <div class="blog-head">
+        <h4 class="blog-title">
+          <%= link_to blog_path(blog) do %>
+            <%= blog.title %>
+          <% end %>
+        </h4>
+        <p class="author">By <%= blog.user.name %></p>
+        <p class="blog-content-summary"><%= blog.content[0..300].gsub(/\s\w+\s*$/,'...') %></p>
+      </div>
     </div>
-  <% end %>
-  <div class="card-block">
-    <a href="#" class="card-link">Add new comment</a>
+    <div class="col-xs-3">
+      <div class="blog-head">
+        <div class="published-date"><span class="po-date"><%= blog.created_at.strftime("%b") %></span><%= blog.created_at.strftime("%e, %Y") %></div>
+        <%= link_to blog_path(blog) do %>
+          <div class="comments-link">
+            <%= blog.comments.count %><i class="fa fa-comment-o fa-lg" style="display: block;" aria-hidden="true"></i>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

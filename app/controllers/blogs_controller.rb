@@ -1,12 +1,25 @@
 class BlogsController < ApplicationController
   def index
-    @blogs = Blog.all
+    top_num = 10
+    @top_commented_blogs = top_commented(top_num)
+    @top_recent_blogs = top_recent(top_num)
   end
 
   def new
+    @user = User.find(params[:user_id])
+    @blog = @user.blogs.new
   end
 
   def create
+    @user = User.find(params[:user_id])
+    @blog = @user.blogs.new(blog_params)
+    if @blog.save
+      flash[:success] = "Create new blog successfully"
+      redirect_to root_path
+    else
+      flash.now[:notice] = @blog.errors.full_messages.to_sentence
+      render 'new'
+    end
   end
 
   def update
@@ -33,5 +46,14 @@ class BlogsController < ApplicationController
   private
     def blog_params
       params.require(:blog).permit(:title, :content)
+    end
+
+    def top_commented(top_num)
+      Blog.all.select("blogs.*, COUNT(1) as comment_count").joins("JOIN comments as comments ON comments.blog_id = blogs.id").group("id").order("comment_count DESC").limit(top_num)
+
+    end
+
+    def top_recent(top_num)
+      Blog.order(created_at: :desc).limit(top_num)
     end
 end

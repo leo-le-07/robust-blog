@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
+
+  resources :my_blogs, only: [:index]
 end

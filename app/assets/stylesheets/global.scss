@@ -1,3 +1,31 @@
 .pad-top-70 {
   padding-top: 70px;
 }
+.navbar-custom {
+  color: #FFF;
+  background-color: #006ecc;
+  height: 54px;
+  a {
+    color: #FFF;
+    &:hover{
+      color: #FFF;
+      text-decoration: none;
+    }
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  li {
+    position: relative;
+    display: block;
+    &:hover{
+      background: none repeat scroll 0 0 rgba(255,255,255,0.02);
+      color: #F8AF86;
+      border-bottom: 3px solid #fff;
+    }
+  }
+  .navbar-nav {
+    li.nav-item {
+      margin-left: 0;
+    }
+  }
+}

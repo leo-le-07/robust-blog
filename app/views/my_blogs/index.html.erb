@@ -1,0 +1,14 @@
+<div class="blogs">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Your blogs</h3>
+      <% if @blogs.size == 0 %>
+        <p>You don't have any blog. Create <%= link_to "new one", new_user_blog_path(current_user) %></p>
+      <% else %>
+        <% @blogs.each do |blog| %>
+          <%= render partial: 'blogs/blog', locals: {blog: blog} %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
